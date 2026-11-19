@@ -1,0 +1,1394 @@
+{
+  "schema": "og-plugin-index/1",
+  "channel": "public",
+  "generated": "2026-11-19T11:43:01.563934Z",
+  "plugins": [
+    {
+      "id": "overlord/aider",
+      "name": "Overlord God for Aider",
+      "publisher": "overlord",
+      "description": "First-party Aider package. Aider (aider-chat 0.86.2 checked) has no MCP client, no hook, no plugin or skill system, so the built-in installer has nothing to write for it and this package declares no MCP, hook, skill or rules block. It carries the one thing Aider can take: a small conventions file placed in `~/.aider/overlord-god/CONVENTIONS.md`, to be loaded read-only through the `read:` key of `~/.aider.conf.yml` (or `aider --read \u003cfile\u003e`). The package never writes `~/.aider.conf.yml` (it is the user's file, and a `files` placement would replace it): the managed `read` entry, the commit attribution keys and the optional usage log are Requests in the README for the core driver.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "1354597ddfe8d65f64961aff6ecc58f58e2b14af5d5d225b2404168afac9b798",
+          "size": 30238,
+          "targets": [
+            "aider"
+          ],
+          "permissions": {
+            "files": [
+              "~/.aider/overlord-god/**"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:42:59.359025Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/aider/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "aQpIDIRBuFon4uISRWTzXMfr1NwyCbk9cDw5wwknfFdoA5d8Tea/OZvGht8lEGcFUUV3ztyVtt2kvHPrY9ZXAg=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/amp",
+      "name": "Overlord God for Amp",
+      "publisher": "overlord",
+      "description": "First-party Amp package (ampcode.com CLI and editor clients that run plugins). One single-file TypeScript plugin, placed in the system plugins folder of the Amp config home, bridges session.start, agent.start, tool.call, tool.result and agent.end to `overlord-god hook rt amp --phase ...`: the routed card (a hidden agent.start message), the shell and file gate (reject-and-continue, or a question only a person can answer), the saver rewrite of plain-text tool output, the stop nudge (one continue per turn) and the per-message usage of each turn. The base skill, the MCP floor (settings key `amp.mcpServers`) and the rules block are written by the built-in installer (`plugins install --harness amp`), so this package declares none of them (a second copy would double the skill and the AGENTS.md block).",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "cfec3d091a91753f70c317ad6872d50bb871fe1452cc1b56a7fd5914dca99dbe",
+          "size": 40049,
+          "targets": [
+            "amp"
+          ],
+          "permissions": {
+            "files": [
+              "{config_dir}/plugins/overlord-god.ts"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:42:59.411437Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/amp/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "mEkSLdmzeWIOfHGJY3w54BrV1XXpoXbVZKgX7fsfbFuLCgnuU3LJGm/y2CXfZYjKBZisyyxsIdBTo7BTttNLCQ=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/ante",
+      "name": "Overlord God for Ante",
+      "publisher": "overlord",
+      "description": "First-party Ante package (Antigma Labs' single-binary `ante` agent, macOS and Linux only). Ante keeps MCP servers in the `mcp_servers` map of ~/.ante/settings.json in the plain command/args/env shape and reads ~/.agents/skills; it documents no global rules file and no hook surface. The package asks the built-in installer for the floor of the `ante` harness row (MCP only) and declares no file of its own; until the registry carries a row with no rules file (README, Requests) the floor step is skipped with a note and nothing is written.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "3e7ed50ccfc0b8f0aba294b65014c662dd78756e5da02cf8c6cd58fa8f005a63",
+          "size": 11488,
+          "targets": [
+            "ante"
+          ],
+          "permissions": {
+            "harness_floor": [
+              "ante"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:42:59.463207Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/ante/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "uGY2n0aei3GJ2CWTdh3ScsjftwuODCkPkT5w8RgJjyBJbbuWNS2hLGG4Keyon/11manmABmE3X6Sovc2Pe81Bg=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/augment",
+      "name": "Overlord God for Augment",
+      "publisher": "overlord",
+      "description": "First-party Augment package (Auggie CLI 1.x; the Augment VS Code and IntelliJ extensions read the same ~/.augment/settings.json and ~/.augment/commands and ~/.augment/agents folders, not checked here). It places the /og slash command and the implementer subagent into ~/.augment. The hooks (PreToolUse gate, PostToolUse, Stop, SessionStart, SessionEnd, PromptSubmit), the MCP floor (settings key mcpServers), the always-applied rules file (~/.augment/rules/overlord-god.md) and the base skill are written by the built-in installer (`plugins install --harness augment`, needs the registry row of the README Requests), so this package declares none of them: a second copy would run every hook twice and double the skill and the rules.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "782763efe99a3dc362cdf01590a7b05f57b0cbb18611fe1340624a0c7bd1f2e3",
+          "size": 29735,
+          "targets": [
+            "augment"
+          ],
+          "permissions": {
+            "files": [
+              "{config_dir}/commands/og.md",
+              "{config_dir}/agents/implementer.md"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:42:59.513636Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/augment/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "6fhm0YVQI2UYQ2QPVtlR3Z1Hpz72J/DnaGr6Xd6bPxad73q9ld4CwjDRzA9/mP0ZAHqWxp3Fi4Yljqz9ZpnVBA=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/autohand",
+      "name": "Overlord God for Autohand Code",
+      "publisher": "overlord",
+      "description": "First-party Autohand Code package (the `autohand` CLI of autohandai/code-cli). Autohand keeps MCP servers as an array `mcp.servers` of named entries and hooks as a `hooks` key in ~/.autohand/config.json, a file that may equally be config.toml, config.yaml or config.yml and whose home AUTOHAND_HOME moves. The package asks the built-in installer for the floor of the `autohand` harness row and declares no file of its own; until the registry carries the row and a JSON list MCP schema (README, Requests) the floor step is skipped with a note and nothing is written.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "dd022581944b06c993522e1cf3ce8c149436c38d4d28a74f64feaf7fbb793412",
+          "size": 11641,
+          "targets": [
+            "autohand"
+          ],
+          "permissions": {
+            "harness_floor": [
+              "autohand"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:42:59.564387Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/autohand/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "NHuJqrNbyE4Cagq4dE8qGnTibXzqSCdjd858BuTN7GqGIK6ROXvzddfCezUL7+Dhg/mXA8Wajt/WpHr56wdGDA=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/chatgpt",
+      "name": "Overlord God for ChatGPT",
+      "publisher": "overlord",
+      "description": "First-party ChatGPT package (the ChatGPT desktop app and chatgpt.com). ChatGPT reaches Overlord God only as a remote custom MCP server that the person adds at chatgpt.com/plugins: the connector lives in the OpenAI account, so the package has no file, hook, rules fragment, skill or MCP row to place on this computer, and writes nothing. The one contribution it declares is the floor of the `chatgpt` harness, which is a no-op by design: the registry holds `chatgpt` only as a detect-only row, so the floor step is skipped with a note and nothing is written (a package needs at least one contribution; there is no docs-only kind). The README is the product: the connector route (exact URL, OAuth, scope), what the hub must serve before ChatGPT can connect (it does not today), the GUI check, what cannot be gated, and the requests for the registry and the hub.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "b4c86bf75576766018ea66326e00dbfc56733934343c6a597a723b6c370ed031",
+          "size": 23617,
+          "targets": [
+            "chatgpt"
+          ],
+          "permissions": {
+            "harness_floor": [
+              "chatgpt"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:42:59.615117Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/chatgpt/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "Eg/ztzUU18Yb0iuvWJj9/pAWJTE7D1BIHJOSmxj3jTYIlitF0SOMK294FZussuDB2SdVuI9uJyfcZ55BBAGCCg=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/claude-code",
+      "name": "Overlord God for Claude Code",
+      "publisher": "overlord",
+      "description": "First-party Claude Code package. native/claude-code is the Overlord God Claude Code plugin (the same tree `plugins install --harness claude-code` installs: hooks, the base skill, the /og and /god-plan commands and four role agents) behind its own local marketplace overlord-god-store. The core's claude-plugin driver runs `claude plugin marketplace add` and `claude plugin install overlord-god@overlord-god-store`. It is an alternative to the built-in install for a machine without one: where the built-in plugin (overlord-god@overlord-god) is installed the store refuses it, so every hook runs once. The UI mod overlord-god-ui is not part of this package (README).",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "6a243890151b6423016c3f6bc1c52cc47ed20c6acacb265006d51bbeec7a8597",
+          "size": 59631,
+          "targets": [
+            "claude-code"
+          ],
+          "permissions": {
+            "native_plugins": [
+              "claude-code"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:42:59.666826Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/claude-code/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "50tPFFdMgcwfW3SS9S/COzB1VJZV0ch8By8gAWFBLCFlplnPYrW3xVtRWAzbcEmA/Tl2nhLzHw1gCg4HN0TRDQ=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/claude-desktop",
+      "name": "Overlord God for Claude Desktop",
+      "publisher": "overlord",
+      "description": "MCP bundle (MCPB) that connects Claude Desktop to the local Overlord God hub: the app starts server/launcher.js, which runs `overlord-god-stdio --harness claude-desktop` (loopback hub; the stdio binary reads the daemon key, the bundle holds no key and no setting). Claude Desktop has no hooks and no rules file, so the workflow rides in the hub's MCP instructions, prompts and the card in the god_plan result. Installing is a manual step in the app: open the .mcpb and confirm.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "cefebff4f75708345ae2e50264d6836e6d1de02860455997f4367f1189f003e2",
+          "size": 23398,
+          "targets": [
+            "claude-desktop"
+          ],
+          "permissions": {
+            "extensions": [
+              "claude-desktop"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:42:59.721839Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/claude-desktop/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "a04kMEM23ThWqPwT5jGleNvu43mIOdk6GohNJoVFemRO/OSS1q4VP/Z6H4/YgvGgoX84vC9PXINHAz98j+D/DA=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/cline",
+      "name": "Overlord God for Cline",
+      "publisher": "overlord",
+      "description": "Cline SDK plugin (TypeScript, loaded in a worker thread by the Cline CLI, hub, desktop app and Kanban; cline 3.0.74). Bridges beforeRun, beforeTool, afterTool and afterRun to `overlord-god hook rt cline --phase ...`: the routed card, the write and shell gate, the saver rewrite of tool output, and the run usage. Placed in the auto-discovered global plugins folder of the Cline config home. The usage parser reads Cline's own session database. The VS Code and JetBrains extensions do not run SDK plugins.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "8576e2e8d6a97c5d6cd557ab97e49ac1a6524a55b4091312b320fa6a93d81fe4",
+          "size": 63069,
+          "targets": [
+            "cline"
+          ],
+          "permissions": {
+            "files": [
+              "{config_dir}/plugins/overlord-god.ts"
+            ],
+            "usage": [
+              "{config_dir}/data/db/sessions.db"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:42:59.770175Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/cline/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "cQ/TZZaQyAlTRcOil1bzh4aXZQXmIxbnW2RmKJmuIEw5IvuzEopfnroYNzDNLNtfjaeWDqTy8SWfPdzbngNyAg=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/codebuddy",
+      "name": "Overlord God for CodeBuddy Code",
+      "publisher": "overlord",
+      "description": "First-party CodeBuddy Code package (Tencent CodeBuddy CLI `codebuddy`/`cbc`; the CodeBuddy IDE and WorkBuddy are other products and are not covered). CodeBuddy has Claude-shaped hooks in ~/.codebuddy/settings.json, MCP servers in ~/.codebuddy/.mcp.json and a user memory file ~/.codebuddy/CODEBUDDY.md, so the package asks the built-in Go installer for the floor of the `codebuddy` harness row (MCP floor, the hook entries `overlord-god hook rt codebuddy`, the managed rules block, the base skill) and declares no file of its own: a second copy would double the entries. Until the registry carries the `codebuddy` row (README, Requests) the floor step is skipped with a note and nothing is written.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "28a340a5a135305cc06d33891ecd25370991fcd76d25dbe07effbd8c80597f38",
+          "size": 27961,
+          "targets": [
+            "codebuddy"
+          ],
+          "permissions": {
+            "harness_floor": [
+              "codebuddy"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:42:59.821704Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/codebuddy/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "eHIgAkJ/wl2sHihevhgRDL0MgVbFziqKaCabtwOxxSxfZXpmZN+ORL0adsQvoyh5qdjJvgujrp9BCKQo9xm0Cg=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/codex",
+      "name": "Overlord God for Codex",
+      "publisher": "overlord",
+      "description": "First-party Codex package. Today it carries the Codex-native plugin tree (native/codex: MCP floor, ten lifecycle hooks, base skill) behind a local marketplace (.agents/plugins/marketplace.json) and the redacted rollout fixture of the usage source. The og-plugin/1 contribution below is the base skill only; the native tree is installed by `codex plugin marketplace add` until core ships contributes.native_plugin (BRIEF-00 C2).",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "191bc6287d2dcb855e47117274c424ba280288351152196516f232bb4bf3e625",
+          "size": 31746,
+          "targets": [
+            "codex"
+          ],
+          "permissions": {},
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:42:59.874168Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/codex/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "fZEAB6RURnTohUzsCVfOSWaSKKFAmnj4p4CSVI3LMnmnTFR7yMQcCDiuS2lgxwKzmpaekacdZmKeBFrKjE3FDQ=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/command-code",
+      "name": "Overlord God for Command Code",
+      "publisher": "overlord",
+      "description": "First-party Command Code package (CLI `command-code`, docs name the binary `cmd`; the Command Code desktop app bundles the same runtime and shares ~/.commandcode). Command Code has Claude-shaped hooks for four events in ~/.commandcode/settings.json, MCP servers in ~/.commandcode/mcp.json and a user memory file ~/.commandcode/AGENTS.md, so the package asks the built-in Go installer for the floor of the `command-code` harness row (MCP floor, hook entries `overlord-god hook rt command-code`, the managed rules block, the base skill) and declares no file of its own. Until the registry carries the row (README, Requests) the floor step is skipped with a note.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "e7f216fa247ec693bf7b0b13ad8afe095b05a73ebc0e4b9061558f767f5e147e",
+          "size": 25246,
+          "targets": [
+            "command-code"
+          ],
+          "permissions": {
+            "harness_floor": [
+              "command-code"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:42:59.923667Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/command-code/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "oW02WfQ1pXHed2tbOk3Q0tvPkHCJLJxDFgw85xZvcphM+NuiZENbrcqXpK1JzTHgWtrPaePr1IiMlHgXiRMzAg=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/continue",
+      "name": "Overlord God for Continue",
+      "publisher": "overlord",
+      "description": "First-party Continue package (cn CLI 1.5.47 and the Continue IDE extensions, which share ~/.continue). The floor goes through the built-in installer: the MCP servers in the mcpServers list of an existing ~/.continue/config.yaml, the floor contract in the rule file ~/.continue/rules/overlord-god.md and the base skill in ~/.continue/skills. cn 1.5.47 loads Claude-shaped hooks but never fires them, so no hook entry is written. This package adds the /og slash prompt for the IDE extensions (~/.continue/prompts/og.md). Nothing here creates config.yaml: cn switches from the hub assistant to the local file as soon as it exists.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "7d484c7f4b798e84d06f7223d078ade4a2464fca4ef560cca0c0f91ecdbc0db1",
+          "size": 34702,
+          "targets": [
+            "continue"
+          ],
+          "permissions": {
+            "files": [
+              "{config_dir}/prompts/og.md"
+            ],
+            "harness_floor": [
+              "continue"
+            ],
+            "usage": [
+              "{config_dir}/sessions/**"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:42:59.97277Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/continue/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "eGjjjOc84DuAI1arPAcrzwfo7jq1r6qtZrAFxPhDcEw0LgY5nEF72StUuXRgkltPvuh0Wbr5jF2OEigZTXXLAg=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/copilot",
+      "name": "Overlord God for GitHub Copilot",
+      "publisher": "overlord",
+      "description": "First-party GitHub Copilot package: one Agent Plugins 1.0 tree (native/copilot) for Copilot CLI, the Copilot app and VS Code agent sessions, which share one harness and one hook format. It carries ten lifecycle hooks (each runs `overlord-god hook rt copilot --phase \u003cp\u003e` and never fails the host), the MCP floor, the base skill, the implementer agent and the /og command, behind a local marketplace (native/.github/plugin/marketplace.json) because direct installs are deprecated. The Copilot CLI loads a path-sourced plugin live from its folder; whether VS Code lists such a plugin is unverified (README). The rules fragment goes into ~/.copilot/copilot-instructions.md. The usage chain (session-state events, session-store.db) is built into the ledger, so no usage parser is declared here (usage/ holds the redacted fixture).",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "144b0fdd8847d3c54faa56ed678a5e29da863af8314564174c154a0a1d248976",
+          "size": 79428,
+          "targets": [
+            "copilot"
+          ],
+          "permissions": {
+            "native_plugins": [
+              "copilot"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.023679Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/copilot/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "fqW5Vf3WYRrBVIIC1xQiShB05HVNEoWHges47vv1cprsQkQfl2WDu+v44ff52nIQaDVfozbqSx76aRrXzi/WCw=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/crush",
+      "name": "Overlord God for Crush",
+      "publisher": "overlord",
+      "description": "First-party Crush package (Charm's `crush` terminal agent). Crush is configured by a bash `crushrc` (MCP servers through `mcp add`, Claude-compatible lifecycle hooks through `hook add`, rules in ~/.config/crush/CRUSH.md), a format the generic JSON/TOML/YAML installer cannot write. The package asks the built-in installer for the floor of the `crush` harness row and declares no file of its own; until the registry carries a `crush` row with a crushrc writer (README, Requests) the floor step is skipped with a note and nothing is written. The README holds the exact managed crushrc block, proved against crush 0.101.0 in a scratch HOME.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "6224aefe0ddc53bd87b6a86a2c8bae3eeb0da106387ea1400b2ad8444a7116ed",
+          "size": 16818,
+          "targets": [
+            "crush"
+          ],
+          "permissions": {
+            "harness_floor": [
+              "crush"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.072622Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/crush/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "cLeBYe2Qe2en4hJFEDRpvtJ6BWVw0la4zmAJ+ivy/QfXiPiCoMeM1t1/ZokWA992lpVnqgwMarBDDDJo5LG7Ag=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/cursor",
+      "name": "Overlord God for Cursor",
+      "publisher": "overlord",
+      "description": "First-party Cursor package for the Cursor IDE agent, the Agents window and the cursor-agent CLI, which load the same Cursor plugin. native/cursor is one Cursor plugin (.cursor-plugin/plugin.json): fourteen hooks (each runs `overlord-god hook cursor ...` through hooks/og-cursor on macOS and Linux and hooks/og-cursor.ps1 on Windows, and never fails the host), the base skill, the Overlord God rule and the caveman rule, the /og command and three role subagents. The core's cursor-plugin driver copies it to ~/.cursor/plugins/local/overlord-god; the Cursor extension registers the same folder from the store instead when no copy is there. The skill and the rules live inside the tree only (a package-level contribution would deliver them a second time). No usage source: Cursor keeps no local token counts (README).",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "7585d92ec3eea0c006b298225fbb45b396a5241418b9270a57f14968aeb81bef",
+          "size": 91045,
+          "targets": [
+            "cursor"
+          ],
+          "permissions": {
+            "native_plugins": [
+              "cursor"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.123042Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/cursor/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "jddKdmC94/1ZaPAiL8lyyPQbicSnTg8t5T3IvmousvM7VBRww1GZolKsk+ib0jiODQy48i+L+L1dixxtJawbDA=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/devin",
+      "name": "Overlord God for Devin",
+      "publisher": "overlord",
+      "description": "First-party Devin package for the Devin CLI and the Devin Desktop local agent (Devin Local), which share one harness, one config home (~/.config/devin, %APPDATA%\\devin on Windows) and one hook format. The floor install writes the Claude-shaped hooks (PreToolUse gate, SessionStart and UserPromptSubmit card, PostToolUse, Stop, PostCompaction, SessionEnd) into the user config, the MCP floor into mcp_config.json and the rules block into AGENTS.md; the package adds the base skill and a small rules fragment. native/devin is the same content as a .devin-plugin tree for a person who prefers `devin plugins install --local` (needs a Devin login, hooks of a plugin are best effort, so it carries none); it is not installed by this manifest. No usage parser: Devin keeps no token counts in its local session database that OG could verify (README).",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "7880ce6f39a3b6bb27f0d07a1b48d62ee00aaf843c8d845ca4745c7eba0fd84f",
+          "size": 90314,
+          "targets": [
+            "devin"
+          ],
+          "permissions": {
+            "harness_floor": [
+              "devin"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.175216Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/devin/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "Lly0yhsv9ppcVIhpMglzfcBo0N/LYymL6nL1ZfSaSGuuep0kynYq1+ZsW0C/tLz212yFDJjAKYlcewGTVcSYCw=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/droid",
+      "name": "Overlord God for Factory Droid",
+      "publisher": "overlord",
+      "description": "First-party Factory Droid package: one native Droid plugin tree (native/droid, .factory-plugin) for the Droid CLI and droid exec (the Factory App shares ~/.factory; not checked). It carries eight lifecycle hooks (each runs `overlord-god hook rt droid --phase \u003cp\u003e` and never fails the host), the MCP floor, the base skill, the implementer droid and the /og command, behind a local marketplace (native/.factory-plugin/marketplace.json). Droid copies a marketplace plugin into its own cache, so an update is a fresh install. The rules fragment goes into ~/.factory/AGENTS.md. The usage parser reads the session settings files Droid writes next to each transcript.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "7a10a0a207b341472b450212bf9502748e4e34700bf7068990023a5eb8db4493",
+          "size": 90368,
+          "targets": [
+            "droid"
+          ],
+          "permissions": {
+            "native_plugins": [
+              "droid"
+            ],
+            "usage": [
+              "{config_dir}/sessions/**"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.22737Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/droid/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "co/IdomC0OrdBSkHJU03+LZ9I5yG2Pnmwe4CHBbSNWHP9YubkoFkmPtOhMkPrypvKvKTwBB7Ydn1Die8hVIzAQ=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/dsh",
+      "name": "Overlord God for DeepSeek Harness",
+      "publisher": "overlord",
+      "description": "First-party DSH package, C3 packaging record. The deployable unit is the dsh bundle package @overlord-god/dsh-bundle, generated into plugins/dsh (single source plugins/src/dsh) and installed by `overlord-god plugins install --harness dsh`: it copies the bundle to ~/.dsh/plugins/overlord-god, links it at \u003cprofile\u003e/node_modules/@overlord-god/dsh-bundle (a junction on Windows when symlinks are not allowed) and selects it in the profile. og-plugin/1 has no contribution that places a linked node package into a dsh profile, so this manifest contributes only one optional guard (ask before a forced push; dsh PreToolUse honours deny and ask) and carries the redacted hook fixtures and tests of the dsh event bridge. A contributes.native_plugin for dsh is requested from BRIEF-00 (C2).",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "b85d2fcf2e110a1eed390ca85d009c8b7d386eed5c5de4a57387fb3d0019db25",
+          "size": 9583,
+          "targets": [
+            "dsh"
+          ],
+          "permissions": {},
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.278872Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/dsh/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "NX65Lb6KXqbImnSkwcuHIwRGc5x756vPDSB+M2wcamTTNatldD1NxwnG1EZmx04VER2CNHwYpeZFatdTG35NBg=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/gemini-cli",
+      "name": "Overlord God for Gemini CLI",
+      "publisher": "overlord",
+      "description": "First-party Gemini CLI package. Installs one native Gemini extension (native/gemini, `gemini extensions link`) that carries the MCP floor, the hook runtime (SessionStart, BeforeAgent, BeforeTool, AfterTool, AfterAgent and SessionEnd through `overlord-god hook rt gemini --phase \u003cp\u003e`), the floor contract (OVERLORD.md), the base skill and the /og command. One load route: the settings.json route of `plugins install --harness gemini` is refused while it is installed.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "a82174a5f94acc31ca9fa2e363e55879dbd88529c37d351f452173d3e6c6d86a",
+          "size": 66689,
+          "targets": [
+            "gemini"
+          ],
+          "permissions": {
+            "native_plugins": [
+              "gemini"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.331077Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/gemini-cli/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "JSlbSZfXUe/W6JJcuEyTnpmBEfEUZwK9jDGvgdwKFkMvHDHcttsPcnXFRsxAuyHSm7vhNxz8rQD0wEVfUQVNBQ=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/gemini-code-assist",
+      "name": "Overlord God for Gemini Code Assist",
+      "publisher": "overlord",
+      "description": "Package for Gemini Code Assist agent mode (VS Code and JetBrains extensions). VS Code agent mode runs a bundled Gemini CLI engine on the same ~/.gemini files, so the MCP floor, the floor contract and the skill come from the built-in installer and the overlord/gemini-cli package, and this package declares none of them. What it adds is only what that host lacks: it loads no hooks, so (1) a static floor gate, ~/.gemini/policies/overlord-god.toml (the Gemini policy engine, user tier: denies rm -rf of the root or home folder and raw disk writes), and (2) a short managed rules block that tells the agent to call god_plan itself when no routed card arrived. JetBrains has its own mcp.json in the versioned IDE config folder: not placed here (README, Requests).",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "46c863ff887d156bbe69355b0a430b2161bd24161afe856546dafd500e8651bf",
+          "size": 18821,
+          "targets": [
+            "gemini"
+          ],
+          "permissions": {
+            "files": [
+              "{config_dir}/policies/overlord-god.toml"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.382483Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/gemini-code-assist/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "+kHArX/awJOkhCHTNS4R1YoqjE3maVLP0QVSTB9YWEWTfKYo8t9x0/HgE7C4A1m2deoDIHv/xBofQ1ffzer5DQ=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/goose",
+      "name": "Overlord God for Goose",
+      "publisher": "overlord",
+      "description": "First-party goose package (the goose CLI and the goose desktop app: both load the same plugins from ~/.agents/plugins). native/goose is one Open Plugins tree (plugin.json, hooks/hooks.json, one POSIX launcher): seven hooks run `overlord-god hook rt goose --phase ...` through scripts/og-goose, which prints only what goose reads (empty stdout, or a block decision for PreToolUse and Stop) and never fails the host. The tree is placed as plain files, so it needs no goose command and no first-party driver. The base skill, the MCP floor (config.yaml `extensions:`) and the rules block are written by the built-in installer (`plugins install --harness goose`), so this package declares none of them: a skill in the plugin would show twice (`overlord-god:overlord-god-mode` next to the shared one) and a second rules fragment would double the block. The usage parser reads goose's own sessions.db (usage_ledger, one row per model request).",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "3e455bbab06e1cd06ef2b6efa1ec35d150685891eb474ace7a6783c901e0b77b",
+          "size": 46660,
+          "targets": [
+            "goose"
+          ],
+          "permissions": {
+            "files": [
+              "{home}/.agents/plugins/overlord-god/**"
+            ],
+            "usage": [
+              "~/.local/share/goose/sessions/**",
+              "~/AppData/Roaming/Block/goose/data/sessions/**"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.434477Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/goose/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "283V0Qk+qCIcNSBjPR9biuRLcvEAntzHakfV4W7Vns1kSFVeMUcik9YrKRMvjnKG4ugwYiW3v810ZnSgZpPVDQ=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/grok-card",
+      "name": "Grok Build routed card",
+      "publisher": "Overlord God",
+      "description": "Delivers the routed one-line card to Grok Build on the first tool result of each prompt, because grok discards what SessionStart and UserPromptSubmit hooks say to the model.",
+      "latest": "0.1.0",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "sha256": "98b91a4f9a79d4843453fed7609531830c93aa6a8ea76f1c44ee8b0d4a849d4d",
+          "size": 25956,
+          "targets": [
+            "grok"
+          ],
+          "permissions": {
+            "exec": [
+              "node"
+            ]
+          },
+          "min_og": "1.0.7",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.486392Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/grok-card/0.1.0.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "aHWRATHsG+RrsQHVXRg3fUCl+A8/umPmmGj13D66xDPuz4nZIWRKdm4RH4mSZTx7R90k+iVj38ZW/UM42dUNCA=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/grokbot",
+      "name": "Overlord God for Grok Bot",
+      "publisher": "overlord",
+      "description": "Grok Bot keeps its MCP servers in the signed-in vendor account, and Overlord God never writes ~/.grokbot. This package is what a bot owner applies in the app by hand: the three Grok Bot skills (skills/, the single source of truth), the three MCP server entries of the team hub (mcp/servers.json, header names only, never a key), and the rules for every bot (rules/every-bot-rules.md). README.md has the click path. Installing it places a paste-ready copy of those files under the Overlord God state folder, nothing else.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "b860ca46323375e7034901c7f347089fa2c24955decdf4c2f435c052188008f9",
+          "size": 13031,
+          "targets": [
+            "grokbot"
+          ],
+          "permissions": {
+            "files": [
+              "{god_dir}/bots/grokbot/**"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.537272Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/grokbot/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "sF9FxSvWIsX1wJDcH11RynLs0w2lhGkeTmANVULVzxT88VZFE3XSjnTfg+hwkW8iTiumOfgGjURHQKBZYK3CCQ=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/hermes",
+      "name": "Overlord God for Hermes",
+      "publisher": "overlord",
+      "description": "First-party Hermes package. native/hermes is the installed layout of the Overlord God Hermes plugin (__init__.py, plugin.yaml, the dashboard and the base skill), the same files `plugins install --harness hermes` writes. The core's hermes-py driver copies it to the Hermes plugins folder (~/.hermes/plugins/overlord-god; on Windows $HERMES_HOME or %LOCALAPPDATA%\\hermes) and then runs the built-in installer's host steps (rules.md, the MCP floor in config.yaml, the legacy shim retire, plugins.enabled written directly). Where the built-in plugin is installed the store refuses it, so every hook runs once.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "c8ba1bccb3082b11eb072939931a6076fa4fb36f7865945e474bcf2394f5168f",
+          "size": 49631,
+          "targets": [
+            "hermes"
+          ],
+          "permissions": {
+            "native_plugins": [
+              "hermes"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.587931Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/hermes/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "xHxzMjHd1vy+QLZRVCV6kx9fP6ReaKiIq2PxIFlTJ3nqxKf1z5fGHDes32p8dSIN2lLDE/tvChhPkRfDMba0DQ=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/ide-vscode",
+      "name": "Overlord God editor extension (VS Code family)",
+      "publisher": "overlord",
+      "description": "First-party package of the Overlord God editor extension (plugins/ide/og-ide, extension id overlord.overlord-god): a status bar item and a panel with the Usage, Agents, Tasks and Status tabs, read from the loopback hub, plus MCP registration through the editor API when the user turns it on. One VSIX for VS Code, VS Code Insiders, Cursor and Kiro, installed by the core's fixed host drivers (code / code-insiders / cursor / kiro --install-extension, verified with --list-extensions). ext/og-ide.vsix is built by scripts/build-og-ide.sh (not committed).",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "5dc622c282ec2904eff3a815620f192ca0ae85621a4ce1ca7bee04e2d876343a",
+          "size": 46192,
+          "targets": [
+            "vscode",
+            "cursor",
+            "kiro"
+          ],
+          "permissions": {
+            "extensions": [
+              "vscode",
+              "vscode-insiders",
+              "cursor",
+              "kiro"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.640806Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/ide-vscode/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "WD1CrR+8wU9nfzgESbfxAMfB5yN2d54qS6/QHuiWESTpvd3DXgG5MxFc2fePbzHMkTn0mKHKQyVMSTzerC1EDw=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/jcode",
+      "name": "Overlord God for jcode",
+      "publisher": "overlord",
+      "description": "First-party jcode package (the Rust coding agent `jcode`). jcode keeps MCP servers in ~/.jcode/mcp.json and hooks as a [hooks] table of ~/.jcode/config.toml (a TOML shape with a gate, observers and env variables, not Claude's JSON). The package asks the built-in installer for the floor of the `jcode` harness row and declares no file of its own; until the registry carries the row and a jcode TOML hook kind (README, Requests) the floor step is skipped with a note and nothing is written. The vendor publishes no docs for these files: every fact is read from the source.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "6ded7ac87810868187a49e08f9b46c56ca7993aa2b8b24be9b0a05e24fb6c1e0",
+          "size": 12960,
+          "targets": [
+            "jcode"
+          ],
+          "permissions": {
+            "harness_floor": [
+              "jcode"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.692196Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/jcode/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "VPgD4BnW+qBLBqIgNUAWHHJ17Wz5DfMSDyYUtt4MGC3Wde2zPwX1ybrw8Gw51ZN+gJECX6/oV6N99OUOJq/rBA=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/junie",
+      "name": "Overlord God for Junie",
+      "publisher": "overlord",
+      "description": "First-party Junie CLI package (Early Access hooks, Junie CLI 26.11.2). One Junie extension (native/junie) that carries the MCP floor, six lifecycle hooks (SessionStart, UserPromptSubmit, PreToolUse, PostToolUse, Stop, SessionEnd, each `overlord-god hook rt junie --phase \u003cp\u003e`), the floor contract as a guideline, the base skill and the /og command, behind a local marketplace (native/.junie-extension/marketplace.json). It never registers PermissionRequest (a hook that exits 0 there auto-approves the dialog) and never uses blockOnError. Usage comes from Junie's own per-session summary.json through the ledger row in spec/ (no declarative parser here, so nothing is counted twice). The Junie plugin inside JetBrains IDEs shares ~/.junie/mcp/mcp.json but is not driven here (README, GUI check).",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "e724d3bbe253159a32026ba44f24d787285577ed3483fe5a3ded82e27ed0c023",
+          "size": 59119,
+          "targets": [
+            "junie"
+          ],
+          "permissions": {
+            "native_plugins": [
+              "junie"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.742565Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/junie/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "gQnA6wn5qvEXNVSdPEVcGCBL0jflMCmg3Hke/Rtz7Y1Lm2ii369VRKz9wh/v1wDFypQhtAx4Q5xUmJ3bAQYoCQ=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/kilo",
+      "name": "Overlord God for Kilo Code",
+      "publisher": "overlord",
+      "description": "Kilo Code CLI plugin (Kilo 7.x, an OpenCode fork). Places the shared Overlord God engine (the same plugin.js as the OpenCode plugin, host id `kilo`) in the Kilo config home, and a one-file entry in its auto-loaded plugin/ folder: hub tools (god_*, og), the routed card, the write and shell gate, the output trimmer and the session capsule. Everything fails open: a missing binary or hub lets the tool run.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "3e18a992876965c7fb8929caa95dcb4d2749cb4dbf9f483c74016290379873dc",
+          "size": 47963,
+          "targets": [
+            "kilo"
+          ],
+          "permissions": {
+            "files": [
+              "{config_dir}/plugin/overlord-god.js",
+              "{config_dir}/overlord-god/plugin.js"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.793957Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/kilo/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "NNTtZe+YI7ZcSgBQVWpXIMh/2frWxEb6G5+BTyQJWUQInlMzLVYI7+b/p3uzGwP7rmGPtzc7H0HtKWrUKrkWDw=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/kiro",
+      "name": "Overlord God for Kiro",
+      "publisher": "overlord",
+      "description": "First-party Kiro package (Kiro IDE and Kiro CLI, one harness and one file layout under ~/.kiro or $KIRO_HOME). The native tree (native/kiro) carries the standalone hooks file hooks/overlord-god.json (hooks file version v1, seven triggers, each runs `overlord-god hook rt kiro --phase \u003cp\u003e`), the role agent overlord-implementer and the base skill overlord-god-mode. The rules fragment becomes the steering file ~/.kiro/steering/overlord-god.md. The MCP floor (~/.kiro/settings/mcp.json) is written by the core installer, not by this package. No usage parser: Kiro bills in account-side credits and a local token record was not found (usage/README.md).",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "b05b62e7982b317447f99847a99b3d326423e36ec416e942fb48c2510ee3ead4",
+          "size": 53235,
+          "targets": [
+            "kiro"
+          ],
+          "permissions": {
+            "native_plugins": [
+              "kiro"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.845144Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/kiro/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "UO7WwEr1wXm8ppNmiB+UGten6iVjCQom8+C0e4eaU5ZtqHCh4nZ5CvTcX/dnCwI1NN2qh/xx/McyejAGqNQxDA=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/mimo-code",
+      "name": "Overlord God for MiMo Code",
+      "publisher": "overlord",
+      "description": "First-party MiMo Code package (Xiaomi's `mimo` coding agent, an OpenCode fork configured by ~/.config/mimocode/mimocode.jsonc). MiMo Code keeps MCP servers in the `mcp` map of that JSONC file in the OpenCode entry shape (type local/remote, command as an array, environment) and reads ~/.config/mimocode/AGENTS.md as its global rules, so the package asks the built-in installer for the floor of the `mimo-code` harness row and declares no file of its own. Until the registry carries the row and an OpenCode-shape JSONC writer for it (README, Requests) the floor step is skipped with a note and nothing is written.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "12cd99f8a0185743a7598621b77ed298bf83f66e28075d5cc1e106ca050ab757",
+          "size": 12189,
+          "targets": [
+            "mimo-code"
+          ],
+          "permissions": {
+            "harness_floor": [
+              "mimo-code"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.896991Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/mimo-code/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "xU6RaLmk89srA3cwnoDeYgT8nRWxmbEYAzWYxkNpnUuDxZ0A57lV5QgIn14LW6GViFqeJSOAeWvGN0eZMDt6AQ=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/muse",
+      "name": "Overlord God for Muse Code",
+      "publisher": "overlord",
+      "description": "First-party Muse Code package (Meta's `muse` terminal agent). Muse keeps user settings, MCP servers (`mcp_servers`) and user hooks in ~/.config/muse/settings.json, a file that must carry `schema_version: 1` (a settings file without it makes every command fail) and whose servers default to `mode: required` (a dead server aborts the run). The generic JSON writer would create exactly such a file, so the package asks the built-in installer for the floor of the `muse` harness row and declares no file of its own; until the registry carries a Muse-aware row (README, Requests) the floor step is skipped with a note and nothing is written.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "ce1b79beac50f843dd1fa6e67a4226edc85e15ef301031b436fb33d6bab66d70",
+          "size": 12700,
+          "targets": [
+            "muse"
+          ],
+          "permissions": {
+            "harness_floor": [
+              "muse"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.946937Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/muse/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "IRcJJfNjHsGtDL2SBTDkUrwqrSDoZeCwX/H3FHPFBWfqzbb2Yume2B9DHxAQoWVumAnysaem7m4KhUxOBpCxDg=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/omp",
+      "name": "Overlord God for Oh My Pi",
+      "publisher": "Overlord God",
+      "description": "Gate and post-tool bridge for Oh My Pi (omp 18.x). Places two TypeScript hook factories in omp's own hooks/pre and hooks/post folders (default ~/.omp/agent): the pre file blocks a tool call that the Overlord God gate denies, the post file reports each finished call and passes on any context line. Both call `overlord-god hook rt omp` and fail open: a missing binary or a timeout lets the tool run.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "6d81ac7fc7f7301b2294dabb7510fc6164c3fdcdae2b5cd1500fb1dd4aa6b333",
+          "size": 28783,
+          "targets": [
+            "omp"
+          ],
+          "permissions": {
+            "files": [
+              "{config_dir}/hooks/pre/overlord-god.ts",
+              "{config_dir}/hooks/post/overlord-god.ts"
+            ]
+          },
+          "min_og": "1.0.7",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:00.997364Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/omp/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "IKV0TonKRTq6PB1EnBqXSU2/f3sRO1wiJWfENR+I8lyvzWZ8Y1QtbcDB0SQYbHbG2/nTJCQYKHeSA2r3n9wWAg=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/openclaw",
+      "name": "Overlord God for OpenClaw",
+      "publisher": "overlord",
+      "description": "First-party OpenClaw package (the self-hosted OpenClaw gateway, `openclaw`; not the OpenMausBot fork, which has its own row). OpenClaw keeps MCP servers in `mcp.servers` of a JSON5 ~/.openclaw/openclaw.json and has a host verb to edit them (`openclaw mcp set|unset|list`), and the agent reads AGENTS.md from its workspace (~/.openclaw/workspace by default). The package asks the built-in installer for the floor of the `openclaw` harness row and declares no file of its own; until the registry carries the row and an installer kind that drives the host verb (README, Requests) the floor step is skipped with a note. The README holds the proof on openclaw 2026.11.5 in a scratch HOME.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "76c7966f8e1903c88930853c6e299ed03ff36bb454d90d69ac4a5d1f71443508",
+          "size": 15688,
+          "targets": [
+            "openclaw"
+          ],
+          "permissions": {
+            "harness_floor": [
+              "openclaw"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:01.049389Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/openclaw/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "j72e0WfsLTe38CLIiIgseRsTsdpI+fDwdJhnsRxY4ZP+uf7dWqpMi1TwxfUjUmi8DAuzLHBmUyAY3dY+jmm4Ag=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/opencode",
+      "name": "Overlord God for OpenCode",
+      "publisher": "overlord",
+      "description": "First-party OpenCode package. native/opencode is the Overlord God OpenCode plugin (plugin.js for V1, index.js for V2, the TUI slots in tui.tsx), the same files `plugins install --harness opencode` copies. The core's opencode-js driver copies it to ~/.config/opencode/plugins/overlord-god and then runs the built-in installer's host steps (the V1 plugin entry or the V2 retire, one hub MCP entry, the /og command, the implementer agent, tui.json and the MCP floor). Where the built-in plugin is installed the store refuses it, so every hook runs once.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "e77420bc4bb3733482811a409802cf92bb44cf7759d4958cd95a8933c3bb0aa4",
+          "size": 39777,
+          "targets": [
+            "opencode"
+          ],
+          "permissions": {
+            "native_plugins": [
+              "opencode"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:01.100783Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/opencode/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "oGtLBouRoaW3C5mwzSnO5jEr8+3Tz8CgAEwM2+VIWuGEnP4u/2DJb1nPGGrMggBxOLaB0tmCq6QsJKKRAHwFBw=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/openmausbot",
+      "name": "Overlord God for OpenMausBot",
+      "publisher": "overlord",
+      "description": "OpenMausBot (OMB) has no code plugins, and Overlord God never writes its config.json (the running app owns it). This package is what a bot owner applies in OMB by hand: the overlord-god-mode skill (the one source of truth, skills/overlord-god-mode/SKILL.md), the three MCP server entries of the team hub (mcp/servers.json, header names only, never a key), and the rules for every bot (rules/every-bot-rules.md). README.md has the click path. Installing it places a paste-ready copy of those files under the Overlord God state folder, nothing else.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "d5ec521ce21ee7ac169bbfae09a7d1d7c1e8741941ceea01ae6956a20c264b9b",
+          "size": 20618,
+          "targets": [
+            "openmausbot"
+          ],
+          "permissions": {
+            "files": [
+              "{god_dir}/bots/openmausbot/**"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:01.150919Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/openmausbot/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "KLqWZpRkLe5Zy4AoIh24W04CvTAMdOWDmNfqhGjKAFT8evxlXJoqC4o1F9QmKBMvO0QBp659V2GTu43wwPFvBw=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/pi",
+      "name": "Overlord God for Pi",
+      "publisher": "overlord",
+      "description": "Pi extension (TypeScript, loaded in process by pi 1.5.2). Bridges tool_call, tool_result, before_agent_start, session_before_compact, agent_settled and session_shutdown to `overlord-god hook rt pi --phase ...`: the write and shell gate, the routed card and the capsule. Placed in the auto-discovered extensions folder of the Pi config home.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "6b623cc9a50e818ef6e5961aab36062f20307403e81a48a3b4192e0a1af87f97",
+          "size": 34200,
+          "targets": [
+            "pi"
+          ],
+          "permissions": {
+            "files": [
+              "{config_dir}/extensions/overlord-god.ts"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:01.201235Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/pi/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "q7gpmFAJT9F4y0i7g8ZSK5Y8Vz8cjjD2PGRVj8HcbpCFaX67kcnb7OVaTwuhwQUj0+Xe0b3lLYf7sucbuMdyCg=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/qoder",
+      "name": "Overlord God for Qoder",
+      "publisher": "overlord",
+      "description": "First-party Qoder package. Qoder CLI, the Qoder desktop app, the Qoder IDE and its JetBrains plugin share one `~/.qoder` home, so the floor goes through the built-in installer into the files every surface reads: the tool gate, routed card and lifecycle hooks (`overlord-god hook rt qoder`, Claude-shaped JSON) and the MCP floor in `~/.qoder/settings.json`, the floor contract in `~/.qoder/AGENTS.md`, the base skill in `~/.qoder/skills`. This package adds the implementer subagent (`~/.qoder/agents`), the /og command (`~/.qoder/commands`) and a rules fragment. The Qoder-native plugin route (`qodercli plugins install`) is not used: the manifest allows one load route per harness and the IDE is only documented to read settings.json (README, test/fixtures/native-alt holds the tree that was proven against the real CLI). Qoder keeps no usage file the ledger can read, so no usage parser is declared (usage/README.md).",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "e2bd2e9cf5e2a47c94fcf2bb39a17107327bf33aa2b3728327607d83e930a06b",
+          "size": 37889,
+          "targets": [
+            "qoder"
+          ],
+          "permissions": {
+            "files": [
+              "{config_dir}/agents/implementer.md",
+              "{config_dir}/commands/og.md"
+            ],
+            "harness_floor": [
+              "qoder"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:01.252557Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/qoder/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "b+wHfrL3mYIJDa3cq7qJ/UOpCl4Xz97e/dYTxHHeCqduLOvaWW0+DIA1FscaIZ+P58OMi6/kjXcmYVyAyv75Ag=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/roo",
+      "name": "Overlord God for Roo Code",
+      "publisher": "overlord",
+      "description": "Roo Code (VS Code extension rooveterinaryinc.roo-cline 3.54). Roo has no hook surface, so this package carries only what the built-in floor installer does not place: the /og slash command in the global commands folder (~/.roo/commands) and the usage parser over the per-task history_item.json files Roo writes in its VS Code globalStorage. The MCP floor (mcp_settings.json), the rules file (~/.roo/rules/overlord-god.md) and the base skill (~/.agents/skills, which Roo reads) come from `overlord-god plugins install --harness roo`, never from here.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "927244e20216921cb8bf94a85c58003e765a4d91cdb798544e7f899af0ea60d8",
+          "size": 26468,
+          "targets": [
+            "roo"
+          ],
+          "permissions": {
+            "files": [
+              "{config_dir}/commands/og.md"
+            ],
+            "usage": [
+              "~/Library/Application Support/Code/User/globalStorage/rooveterinaryinc.roo-cline/tasks/**"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:01.30426Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/roo/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "qGuTFCjsAJag32FDcMpKdoJ9gSCjOkXP2ckf6Ng7F2/t7u99zEfIhzspnQvXcgdARft0quduV0rXudVLWCguAQ=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/rovo",
+      "name": "Overlord God for Rovo Dev CLI",
+      "publisher": "overlord",
+      "description": "First-party Rovo Dev CLI package (Atlassian `acli rovodev`; Rovo Dev in the IDE and Bitbucket Pipelines are other surfaces and are not covered). Rovo Dev has no documented hook surface, so the package asks the built-in Go installer for the floor of the `rovo` harness row (the engram, obsidian-overlord and overlord-god MCP servers in ~/.rovodev/mcp.json and the managed rules block in the user memory file ~/.rovodev/AGENTS.md) and declares no file of its own. Until the registry carries the row (README, Requests) the floor step is skipped with a note and nothing is written.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "d1cc25817e989b90d1072df48aa363ebbc300781b7c16fd42ab5eb4be5364d51",
+          "size": 19459,
+          "targets": [
+            "rovo"
+          ],
+          "permissions": {
+            "harness_floor": [
+              "rovo"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:01.3567Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/rovo/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "aa7nw+Z53vUvCUlnO6soreI57KBY4JfWDtjQ5if03O2y6ePjYq5so2ig3iKfBgsIHwMSWw2mZq0pjIMvfneFCg=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/trae",
+      "name": "Overlord God for Trae",
+      "publisher": "overlord",
+      "description": "First-party Trae package (the Trae IDE; traecli is unverified). The floor goes through the built-in installer: the tool gate, routed card and lifecycle hooks (`overlord-god hook rt trae`, Claude-shaped JSON) in `~/.trae/hooks.json`, the MCP floor in the Trae user `mcp.json` (`mcpServers`), the floor contract as a global rule `~/.trae/user_rules/overlord-god.md` and the base skill in `~/.trae/skills`. This package adds the /og command (`~/.trae/commands`) and a rules fragment. No subagent file: the documented user path (`~/.trae-cn/agents`) is the China product's and the feature sits behind a Beta switch (README). Trae keeps no usage file the ledger can read, so no usage parser is declared (usage/README.md).",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "73e3ab7f66a2d90f7b5956d2e563d2b7200f2902fbc76e1602b14ae5d56fc0c4",
+          "size": 30006,
+          "targets": [
+            "trae"
+          ],
+          "permissions": {
+            "files": [
+              "{config_dir}/commands/og.md"
+            ],
+            "harness_floor": [
+              "trae"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:01.408233Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/trae/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "PrH2LF4DRSSAy7xSlwf/VJUkpXmJsTiAiTOwtnHMyqggPjcEI1z7s3rgm5Sz30rqkjlC7lkYQh6Ane3YHNYUDA=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/warp",
+      "name": "Overlord God for Warp",
+      "publisher": "overlord",
+      "description": "First-party Warp package (the Warp terminal's agent mode, the Warp Agent CLI `warp`, and the app that hosts both). Warp has no hook surface for its own agent and no plugin API, so there is nothing of ours to place: the package asks the built-in Go installer for the floor of the `warp` harness row (the engram, obsidian-overlord and overlord-god MCP servers in the global file-based MCP file ~/.warp/.mcp.json, and the managed rules block in ~/.agents/AGENTS.md, the global rules file of the Warp Agent CLI) and declares no skill, no rules fragment and no file of its own: Warp scans ~/.agents/skills, where the built-in installer already writes the base skill, so a second copy would list the skill twice. Until the registry carries the `warp` row (README, Requests) the floor step is skipped with a note and nothing is written. The README holds the by-hand route (paste the MCP JSON in Settings \u003e Agents \u003e MCP servers, the rules text, the optional execution profile) for a machine without it.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "c080f023b0e0132a0f0ed816d05b2e96df13459e6c30459a27cfb8a5fecf97c6",
+          "size": 25725,
+          "targets": [
+            "warp"
+          ],
+          "permissions": {
+            "harness_floor": [
+              "warp"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:01.46124Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/warp/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "dCfz5g4U+hidjX0AZsmuzrz+tUEXVJYKsa3YkVCXNRQPOyZ6NbSy/jxQTXJo+YuF8wSIvxQIYZmeEi/uNQN9Cg=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/xcode",
+      "name": "Overlord God for Xcode",
+      "publisher": "overlord",
+      "description": "Package for Xcode 26.3+ Intelligence (macOS only). It adds one catalog row, `xcode`: Xcode's own MCP server through Apple's stdio bridge (`/usr/bin/xcrun mcpbridge`), so every Overlord God harness reaches Xcode's build, test, preview and project tools through god_call. The row is darwin-only: on Linux and Windows it is never started and the check and smoke commands skip it with \"not on this OS\". The package places no file in Xcode's own folders and asks for no floor: the coding assistant's embedded Claude Agent, Codex and Gemini read config homes under ~/Library/Developer/Xcode/CodingAssistant that Xcode rewrites and reconciles itself, and what Xcode imports from ~/.claude is a GUI check, so the registry rows for them are Requests in the README, not part of this package. Because it uses no first-party kind it installs from any build today.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "8d1ec49d4d1ce80b329c2986df7f5b59041609c50e38c7d31c6dbf9d2ad7a1cb",
+          "size": 17460,
+          "targets": [
+            "*"
+          ],
+          "permissions": {
+            "mcp": true
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:01.513122Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/xcode/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "scf5xQXe4tJPyhjUsU430pa0X2MW9NaCOwYvUIVPaLvH6JXJMrqObTKwpFBNS2V3VOav75Bb+nFMa7Um2zD7DQ=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/zed",
+      "name": "Overlord God for Zed",
+      "publisher": "overlord",
+      "description": "First-party Zed package (agent panel, external agents over ACP). Zed has no hook API, so there is nothing to gate or rewrite here. The MCP floor (settings key `context_servers`), the rules block (`~/.config/zed/AGENTS.md`) and the base skill (`~/.agents/skills`, the one root Zed reads) are written by the built-in installer (`plugins install --harness zed`), so this package declares none of them (a second copy would double the skill, the AGENTS.md block and the MCP server). What it carries is the one thing the installer cannot write: the source of an optional Zed dev extension (`overlord-god`, context server `overlord-god-hub`, command `overlord-god-stdio --harness zed`) placed in `{config_dir}/overlord-god/zed-extension`. Zed no longer accepts new MCP server extensions in its registry, so the only install is the manual step `zed: install dev extension` on that folder, and it is an alternative to the settings entry, not an addition to it.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "5f73346c969d384941ceca1873e964f17019fb61cfda7240fa212aef714322f5",
+          "size": 34546,
+          "targets": [
+            "zed"
+          ],
+          "permissions": {
+            "files": [
+              "{config_dir}/overlord-god/zed-extension/**"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "1.0.8 first-party package",
+          "published_at": "2026-11-19T11:43:01.563934Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/zed/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "zyw0Ajy4Y0Ht+B99VHNSFJqh/Z/27aI/wdlxPTSBOrLs8lKBXzS7YFIeSD0Yp3hRYF1K1BKHFImMiMofySjcDg=="
+          }
+        }
+      ]
+    }
+  ]
+}
