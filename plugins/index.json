@@ -1,7 +1,7 @@
 {
   "schema": "og-plugin-index/1",
   "channel": "public",
-  "generated": "2026-11-19T11:43:01.563934Z",
+  "generated": "2026-11-19T18:41:48.404981Z",
   "plugins": [
     {
       "id": "overlord/aider",
@@ -1037,6 +1037,37 @@
           "signature": {
             "key_id": "5cbb30b0464c8cbd",
             "sig": "IKV0TonKRTq6PB1EnBqXSU2/f3sRO1wiJWfENR+I8lyvzWZ8Y1QtbcDB0SQYbHbG2/nTJCQYKHeSA2r3n9wWAg=="
+          }
+        }
+      ]
+    },
+    {
+      "id": "overlord/openbot",
+      "name": "Overlord God for OpenBot",
+      "publisher": "overlord",
+      "description": "OpenBot (CopilotKit, self-hosted) keeps its MCP servers and skills in its own database, and Overlord God never writes to it. This package is what an OpenBot admin applies by hand or through the OpenBot API: the overlord-god-mode skill (skills/, the single source of truth, added through the OpenBot skills API), the three MCP server requests of the team hub (mcp/servers.json, never a key), and the rules for every bot (rules/every-bot-rules.md). README.md has the steps. Installing it places a paste-ready copy of those files under the Overlord God state folder, nothing else.",
+      "latest": "1.0.8",
+      "versions": [
+        {
+          "version": "1.0.8",
+          "sha256": "c25713b3629a00e76f4e49d00089ec86171bfa9e4203aa5d91409101df6d1f28",
+          "size": 9745,
+          "targets": [
+            "openbot"
+          ],
+          "permissions": {
+            "files": [
+              "{god_dir}/bots/openbot/**"
+            ]
+          },
+          "min_og": "1.0.8",
+          "changelog": "OpenBot (CopilotKit) hub package",
+          "published_at": "2026-11-19T18:41:48.404981Z",
+          "published_by": "maintainer",
+          "path": "pkg/overlord/openbot/1.0.8.ogp",
+          "signature": {
+            "key_id": "5cbb30b0464c8cbd",
+            "sig": "NVx/lyK6qdNdtGxV/lPeOfoheu4DJQp2L9TO3AwjyayyyEJhq15g+hga4IDxiXZBZQIkHSNfiC9gg984HuiwDA=="
           }
         }
       ]
